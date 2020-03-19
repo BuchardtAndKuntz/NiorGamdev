@@ -10,7 +10,7 @@ var overflow = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	overflow = 5
+	overflow = 2
 	pass # Replace with function body.
 
 
@@ -20,3 +20,4 @@ func _ready():
 
 func _conflictMaker():
 	overflow = overflow + 1
+	print("Test")
