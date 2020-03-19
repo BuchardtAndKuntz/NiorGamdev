@@ -1,7 +1,8 @@
 extends Node2D
 
 
-var overflow = 1
+var underflow = 2
+var overflow = 3
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -10,7 +11,8 @@ var overflow = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	overflow = 2
+	overflow = 5
+	underflow = 3
 	pass # Replace with function body.
 
 
