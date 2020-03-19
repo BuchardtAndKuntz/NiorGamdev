@@ -7,3 +7,6 @@ script = ExtResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 34.733
+
+[node name="SkeletonIK" type="SkeletonIK" parent="."]
+process_priority = 1
