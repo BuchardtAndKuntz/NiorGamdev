@@ -6,6 +6,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "BlackOut"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BackGround:self_modulate")
 tracks/0/interp = 1
@@ -13,10 +14,34 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.0901961, 0.0901961, 0.0901961, 1 ), Color( 0, 0, 0, 1 ) ]
+"values": [ Color( 0.0901961, 0.0901961, 0.0901961, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Logo:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.67451, 0.152941, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TeamName:custom_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.67451, 0.152941, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [node name="Control" type="Control"]
@@ -27,7 +52,7 @@ __meta__ = {
 }
 
 [node name="BackGround" type="TextureRect" parent="."]
-self_modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 888.0
@@ -38,6 +63,7 @@ __meta__ = {
 }
 
 [node name="Logo" type="TextureRect" parent="."]
+self_modulate = Color( 0, 0.67451, 0.152941, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -53,12 +79,15 @@ __meta__ = {
 }
 
 [node name="TeamName" type="Label" parent="."]
-margin_left = 445.428
-margin_top = 460.563
-margin_right = 557.428
-margin_bottom = 474.563
-custom_colors/font_color = Color( 0.00392157, 0.490196, 0.109804, 1 )
+anchor_left = 0.434988
+anchor_top = 0.767604
+anchor_right = 0.544363
+anchor_bottom = 0.790938
+custom_colors/font_color = Color( 0, 0.67451, 0.152941, 1 )
 text = "Team FlawedLuck"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/BlackOut = SubResource( 1 )
