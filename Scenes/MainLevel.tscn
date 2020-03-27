@@ -1,12 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://GameObjects/TileMaps/tileset_temp.tres" type="TileSet" id=1]
 [ext_resource path="res://GameObjects/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Shooting.gd" type="Script" id=3]
+[ext_resource path="res://Images/background_01_temp.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 2217.86, 223.284 )
+scale = Vector2( 10, 2 )
+texture = ExtResource( 4 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -25,3 +31,6 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
