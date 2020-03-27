@@ -3,41 +3,68 @@ extends Node2D
 export var ThrowAble = true
 export var ThrowSpeed = 500
 export var MaxDistance = 500
-# Declare member variables here. Examples:
-# var a = 2
+var offset
 # var b = "text"
 onready var OwlBody = $OwlBody
 var startPos
 var currentPos
 var velocity = Vector2.ZERO
+var canvasMod
+var isRecalling
+var parent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	offset = position
+	parent = get_parent()
 	startPos = position
 	pass # Replace with function body.
 
 
 func _physics_process(delta):
 	if  Input.is_action_just_pressed("ui_shoot"):
-		throw(startPos+(Vector2.RIGHT*MaxDistance))
+		throw(get_global_mouse_position())
+	elif  Input.is_action_just_pressed("recall"):
+		isRecalling = true
 	MoveOwl()
 	
 
 func MoveOwl():
+	if (startPos-OwlBody.get_global_transform().origin).length()>MaxDistance:
+		velocity = Vector2.ZERO
+	
+	if(isRecalling):
+		if((parent.get_global_transform().origin -OwlBody.get_global_transform().origin).length()<100):
+			resetOwl()
+		else:
+			velocity = recall()
+		
+	
 	OwlBody.move_and_slide(velocity, Vector2.UP)
 
 func throw(destination):
 	if ThrowAble:
-		startPos = position
+		ThrowAble = false
+		currentPos = get_global_transform().origin
+		set_as_toplevel(true)
+		position = currentPos
+		startPos = get_global_transform().origin
 		velocity = (destination-startPos).normalized()*ThrowSpeed
 		#Get set startpos
 		#move and slide towards direction of mouse
 		#if collision owl stays at collision spot
 	#if trowable
 
+func resetOwl():
+	ThrowAble = true
+	isRecalling = false
+	set_as_toplevel(false)
+	velocity = Vector2.ZERO
+	position = offset
+
 func recall():
-	#recalls owl 
-	pass
+	#Recall 
+	return ( parent.get_global_transform().origin -OwlBody.get_global_transform().origin ).normalized()*ThrowSpeed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
