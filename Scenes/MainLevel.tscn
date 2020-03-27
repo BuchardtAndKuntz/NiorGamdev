@@ -11,7 +11,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 2217.86, 223.284 )
+position = Vector2( 2217.86, 225.802 )
 scale = Vector2( 10, 2 )
 texture = ExtResource( 4 )
 
