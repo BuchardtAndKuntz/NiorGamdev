@@ -16,6 +16,10 @@ tile_data = PoolIntArray( -65507, 0, 0, -65506, 0, 0, -65495, 0, 0, -65494, 0, 0
 [node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 561.965, 102.762 )
 
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+offset = Vector2( 0, -70 )
+current = true
+
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 3 )
 
