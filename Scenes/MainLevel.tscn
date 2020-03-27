@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GameObjects/TileMaps/tileset_temp.tres" type="TileSet" id=1]
 [ext_resource path="res://GameObjects/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Shooting.gd" type="Script" id=3]
 [ext_resource path="res://Images/background_01_temp.png" type="Texture" id=4]
+[ext_resource path="res://GameObjects/Owl.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -25,6 +26,10 @@ position = Vector2( 561.965, 102.762 )
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
 offset = Vector2( 0, -70 )
 current = true
+
+[node name="OwlRoot" parent="KinematicBody2D" instance=ExtResource( 5 )]
+position = Vector2( 20, -30 )
+scale = Vector2( 0.7, 0.7 )
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 3 )
