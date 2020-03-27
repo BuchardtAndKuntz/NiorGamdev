@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GameObjects/TileMaps/tileset_temp.tres" type="TileSet" id=1]
 [ext_resource path="res://GameObjects/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Shooting.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
 
 [node name="Node2D" type="Node2D"]
 
@@ -12,3 +15,9 @@ tile_data = PoolIntArray( -65507, 0, 0, -65506, 0, 0, -65495, 0, 0, -65494, 0, 0
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 561.965, 102.762 )
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
