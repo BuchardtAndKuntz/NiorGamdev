@@ -17,6 +17,7 @@ shape = SubResource( 1 )
 [node name="Light2D" type="Light2D" parent="."]
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 3 )
+mode = 2
 shadow_enabled = true
 
 [node name="PlayerSprite" type="AnimatedSprite" parent="."]
