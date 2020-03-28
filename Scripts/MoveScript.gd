@@ -46,6 +46,15 @@ func input():
 	
 	player_controls()
 	
+	#Are we back on the floor? then reset jumps
+	if is_on_floor():
+		midAir = false
+		hasDoubleJumped = false
+		if shouldResetYVel:
+			if !Input.is_action_pressed("jump"):
+				playerVelocity.y = minGravitiy
+				shouldResetYVel = false
+	
 	if playerVelocity.x == 0:
 		action = "Idle"
 	else:
@@ -95,15 +104,6 @@ func processJump():
 	#Are we falling? then are we gliding? 
 	if not is_on_floor():
 			glide()
-	
-	#Are we back on the floor? then reset jumps
-	if is_on_floor():
-		midAir = false
-		hasDoubleJumped = false
-		if shouldResetYVel:
-			if !Input.is_action_pressed("jump"):
-				playerVelocity.y = minGravitiy
-				shouldResetYVel = false
 
 #Single jump
 func jump():
