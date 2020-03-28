@@ -64,7 +64,6 @@ margin_right = 49.9653
 margin_bottom = -197.238
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.0392157, 0.0392157, 0.0392157, 0.941176 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
