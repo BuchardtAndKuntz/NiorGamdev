@@ -4,7 +4,8 @@ var playerVelocity = Vector2.ZERO
 export var moveSpeed = 600
 export var fallSpeed = 53
 export var jumpHeight = 1000
-export var glideSpeed = 20
+export var glideSpeed = 120
+export var maxFallSpeed = 1200
 var midAir = false
 var hasDoubleJumped = false
 var isGliding = false
@@ -33,7 +34,10 @@ func input():
 		if isGliding:
 			playerVelocity.y = glideSpeed
 		else:
-			playerVelocity += Vector2.DOWN*fallSpeed
+			if playerVelocity.y < maxFallSpeed:
+				playerVelocity += Vector2.DOWN*fallSpeed
+				if playerVelocity.y > maxFallSpeed:
+					playerVelocity.y = maxFallSpeed
 	
 	if Input.is_action_just_pressed("ui_end"):
 		get_tree().quit()
