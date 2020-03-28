@@ -110,13 +110,14 @@ func throw(destination):
 #Swaps the position of the player and the owl
 func swap():
 	#Checks if the swap cooldown is over
-	if SwapTimer>SwapTime:
-		SwapTimer = 0
-		var oldPPos = parent.position
-		var oldOPos = OwlBody.position
-		parent.position = oldOPos
-		OwlBody.position = oldPPos
-		resetOwl()
+	if AbilityFlags.hasOwlSwitch:
+		if SwapTimer>SwapTime:
+			SwapTimer = 0
+			var oldPPos = parent.position
+			var oldOPos = OwlBody.position
+			parent.position = oldOPos
+			OwlBody.position = oldPPos
+			resetOwl()
 
 #Resets the owl to the starting pos and roots it to the player pos
 func resetOwl():
