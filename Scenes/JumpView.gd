@@ -1,24 +1,34 @@
 extends Control
 
 
-var start = Vector2(700,130)
-var destination = Vector2(700,200)
+var start = Vector2(0,0)
+var destination = Vector2(0,-200)
 var time = 2
-var facing = "Right"
-var y = 130
+var facing = "up"
+var y = 0
+var reset
+var timeTimer = 0
 onready var right = $Right
 
 
 
 func _physics_process(delta):
-	if y>200:
+	timeTimer += delta
+	#-70
+	
+	if y<-70:
 		facing = "down"
-	elif y<130:
+	elif y>0:
 		facing = "up"
+		if reset:
+			timeTimer = 0
 	
 	match facing:
 		"down":
-			y += delta*35
+			y += delta*200
 		"up":
-			y -= delta*115
-	_set_position(Vector2(700,y))
+			reset = true
+			if timeTimer>time:
+				reset = false
+				y -= delta*150
+	_set_position(Vector2(0,y))

@@ -69,37 +69,56 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="Panel/ControlPanel"]
-margin_left = 196.745
-margin_top = 197.648
-margin_right = 383.745
-margin_bottom = 211.648
-text = "WASD or Arrowkeys to move "
+[node name="Label3" type="Label" parent="Panel/ControlPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -203.5
+margin_top = -24.0
+margin_right = 203.5
+margin_bottom = 24.0
+text = "Gather ingredients for your potion to win the game
+
+You might need to gain additional skills to gather all ingredients"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Panel/ControlPanel"]
-margin_left = 634.458
-margin_top = 193.135
-margin_right = 820.458
-margin_bottom = 207.135
-text = "W, Up-arrow or space to jump"
+[node name="Skip" type="Label" parent="Panel/ControlPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -93.0
+margin_top = 100.0
+margin_right = 93.0
+margin_bottom = 114.0
+text = "Press Spacebar to start game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="JumpView" type="Control" parent="Panel/ControlPanel"]
-margin_left = 700.0
-margin_top = 120.0
-margin_right = 740.0
-margin_bottom = 160.0
+[node name="Jump" type="Control" parent="Panel/ControlPanel"]
+anchor_left = 0.78125
+anchor_top = 0.3
+anchor_right = 0.820313
+anchor_bottom = 0.366667
+margin_top = 1.52588e-05
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="JumpView" type="Control" parent="Panel/ControlPanel/Jump"]
+anchor_right = 0.0390625
+anchor_bottom = 0.0666666
 script = ExtResource( 7 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
-[node name="Right" type="TextureRect" parent="Panel/ControlPanel/JumpView"]
+[node name="Right" type="TextureRect" parent="Panel/ControlPanel/Jump/JumpView"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -114,48 +133,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label3" type="Label" parent="Panel/ControlPanel"]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="Label2" type="Label" parent="Panel/ControlPanel/Jump"]
+anchor_left = -1.8875
+anchor_top = 1.875
+anchor_right = 2.8875
+anchor_bottom = 2.225
+text = "W, Up-arrow or space to jump"
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
-[node name="Label4" type="Label" parent="Panel/ControlPanel"]
-margin_left = 74.9075
-margin_top = 384.465
-margin_right = 236.908
-margin_bottom = 398.465
-text = "Left mouse click to throw"
+[node name="Move" type="Control" parent="Panel/ControlPanel"]
+anchor_left = 0.224609
+anchor_top = 0.3
+anchor_right = 0.263672
+anchor_bottom = 0.366667
+margin_top = 1.52588e-05
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
-[node name="Label5" type="Label" parent="Panel/ControlPanel"]
-margin_left = 75.81
-margin_top = 481.033
-margin_right = 247.81
-margin_bottom = 495.033
-text = "Right click to recall the owl"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MoveView" type="Control" parent="Panel/ControlPanel"]
-anchor_left = 0.210049
-anchor_top = 0.223304
-anchor_right = 0.249112
-anchor_bottom = 0.28997
-margin_left = -0.0903473
-margin_top = -3.9823
-margin_right = -0.0903473
-margin_bottom = -3.9823
+[node name="MoveView" type="Control" parent="Panel/ControlPanel/Move"]
+anchor_left = -0.75
+anchor_top = 0.5
+anchor_right = -0.710937
+anchor_bottom = 0.566667
+margin_right = -1.90735e-06
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Left" type="TextureRect" parent="Panel/ControlPanel/MoveView"]
+[node name="Left" type="TextureRect" parent="Panel/ControlPanel/Move/MoveView"]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -171,7 +180,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Right" type="TextureRect" parent="Panel/ControlPanel/MoveView"]
+[node name="Right" type="TextureRect" parent="Panel/ControlPanel/Move/MoveView"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -184,6 +193,16 @@ texture = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/ControlPanel/Move"]
+anchor_left = -1.8375
+anchor_top = 1.875
+anchor_right = 2.8375
+anchor_bottom = 2.225
+text = "WASD or Arrowkeys to move "
+__meta__ = {
+"_edit_use_anchors_": true
 }
 [connection signal="pressed" from="Panel/StartGame" to="Panel/StartGame" method="_on_StartGame_pressed"]
 [connection signal="pressed" from="Panel/Close" to="Panel/Close" method="_on_Close_pressed"]
