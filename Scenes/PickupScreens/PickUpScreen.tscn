@@ -4,6 +4,7 @@
 [ext_resource path="res://Scenes/PickupScreens/PickUpScreen.gd" type="Script" id=2]
 
 [node name="PickUpScreen" type="Control"]
+show_behind_parent = true
 light_mask = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
