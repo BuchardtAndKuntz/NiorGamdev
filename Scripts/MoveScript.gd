@@ -12,7 +12,7 @@ var isGliding = false
 
 
 func _physics_process(delta):
-	
+	print("Player vel y: " + str(playerVelocity.y))
 	processmovement()
 	input()
 
@@ -58,6 +58,8 @@ func processJump():
 	if is_on_floor():
 		midAir = false
 		hasDoubleJumped = false
+		if !Input.is_action_just_pressed("jump"):
+			playerVelocity.y = 0
 
 #Single jump
 func jump():
