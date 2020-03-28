@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pillarButt.png-02184c2637048a6c385fe70960bc9c5e.stex"
+path="res://.import/PillarMidDecor.png-0c9394170456e9c25d748fe1af78af01.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Tiles/pillarButt.png"
-dest_files=[ "res://.import/pillarButt.png-02184c2637048a6c385fe70960bc9c5e.stex" ]
+source_file="res://Graphics/Tiles/PillarMidDecor.png"
+dest_files=[ "res://.import/PillarMidDecor.png-0c9394170456e9c25d748fe1af78af01.stex" ]
 
 [params]
 

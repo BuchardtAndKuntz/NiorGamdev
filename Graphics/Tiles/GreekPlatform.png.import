@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pillarmid.png-060b60d1b7dd6a20bdeef105cc40f411.stex"
+path="res://.import/GreekPlatform.png-8a44b1f85314986a2bfdf9d9ed2f29cd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Tiles/pillarmid.png"
-dest_files=[ "res://.import/pillarmid.png-060b60d1b7dd6a20bdeef105cc40f411.stex" ]
+source_file="res://Graphics/Tiles/GreekPlatform.png"
+dest_files=[ "res://.import/GreekPlatform.png-8a44b1f85314986a2bfdf9d9ed2f29cd.stex" ]
 
 [params]
 
