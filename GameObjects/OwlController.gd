@@ -3,19 +3,15 @@ extends Node2D
 export var ThrowAble = true
 export var ThrowSpeed = 500
 export var MaxDistance = 500
-var offset
-# var b = "text"
+
 onready var OwlBody = $OwlBody
 var startPos
-var currentPos
 var velocity = Vector2.ZERO
-var canvasMod
 var isRecalling
 var parent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	offset = position
 	parent = get_parent()
 	startPos = position
 	pass # Replace with function body.
@@ -34,7 +30,7 @@ func MoveOwl():
 		velocity = Vector2.ZERO
 	
 	if(isRecalling):
-		if((parent.get_global_transform().origin -OwlBody.get_global_transform().origin).length()<100):
+		if((parent.get_global_transform().origin -OwlBody.get_global_transform().origin).length()<50):
 			resetOwl()
 		else:
 			velocity = recall()
@@ -45,9 +41,9 @@ func MoveOwl():
 func throw(destination):
 	if ThrowAble:
 		ThrowAble = false
-		currentPos = get_global_transform().origin
-		set_as_toplevel(true)
-		position = currentPos
+		var currentPos = OwlBody.get_global_transform().origin
+		OwlBody.set_as_toplevel(true)
+		OwlBody.position = currentPos
 		startPos = get_global_transform().origin
 		velocity = (destination-startPos).normalized()*ThrowSpeed
 		#Get set startpos
@@ -58,9 +54,9 @@ func throw(destination):
 func resetOwl():
 	ThrowAble = true
 	isRecalling = false
-	set_as_toplevel(false)
+	OwlBody.set_as_toplevel(false)
 	velocity = Vector2.ZERO
-	position = offset
+	OwlBody.position = Vector2.ZERO
 
 func recall():
 	#Recall 
