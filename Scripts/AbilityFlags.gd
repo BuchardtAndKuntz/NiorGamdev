@@ -6,4 +6,4 @@ var hasDoubleJump = false
 var hasGlide = false
 var hasOwlSwitch = false
 var canThrowOwl = true
-
+var movementAllowed = true
