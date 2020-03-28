@@ -27,7 +27,11 @@ func processAnimation():
 				animationSprite.play("RightIdle")
 			elif facing == "Left":
 				animationSprite.play("LeftIdle")
-
+		"Move":
+			if facing == "Right":
+				animationSprite.play("RightMove")
+			elif facing == "Left":
+				animationSprite.play("LeftMove")
 
 func processmovement():
 	move_and_slide(playerVelocity, Vector2.UP)
@@ -41,6 +45,11 @@ func input():
 	if Input.is_action_pressed("ui_left"):
 		facing = "Left"
 		playerVelocity += Vector2.LEFT*moveSpeed
+	
+	if playerVelocity.x == 0:
+		action = "Idle"
+	else:
+		action = "Move"
 	processJump()
 	
 	if !is_on_floor():
