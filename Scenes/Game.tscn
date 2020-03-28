@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://GameObjects/TileMaps/tileset_temp.tres" type="TileSet" id=1]
 [ext_resource path="res://GameObjects/Player/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://GameObjects/PickUpIngredient.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/PickupScreens/PickUpScreen.tscn" type="PackedScene" id=11]
 [ext_resource path="res://GameObjects/Cauldron.tscn" type="PackedScene" id=12]
+[ext_resource path="res://GameObjects/AsianLight.tscn" type="PackedScene" id=13]
+[ext_resource path="res://GameObjects/MineLight.tscn" type="PackedScene" id=14]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
@@ -393,3 +395,9 @@ position = Vector2( -882.269, 3166.98 )
 
 [node name="CauldronRoot" parent="." instance=ExtResource( 12 )]
 position = Vector2( -1307.52, 3353.94 )
+
+[node name="AsianLight" parent="." instance=ExtResource( 13 )]
+position = Vector2( -301.157, 2480 )
+
+[node name="MineLight" parent="." instance=ExtResource( 14 )]
+position = Vector2( 254.635, 2501.05 )
