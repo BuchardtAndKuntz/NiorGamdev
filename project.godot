@@ -21,7 +21,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Finder="*res://Scripts/Finder.gd"
+AbilityFlags="*res://Scripts/AbilityFlags.gd"
 
 [input]
 

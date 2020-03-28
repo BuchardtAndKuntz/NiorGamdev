@@ -26,7 +26,7 @@ current = true
 
 [node name="OwlRoot" parent="Player" instance=ExtResource( 5 )]
 position = Vector2( 20, -30 )
-scale = Vector2( 0.7, 0.7 )
+scale = Vector2( 1, 1 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
