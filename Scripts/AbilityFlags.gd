@@ -5,5 +5,5 @@ extends Node
 var hasDoubleJump = false
 var hasGlide = false
 var hasOwlSwitch = false
-
+var canThrowOwl = true
 
