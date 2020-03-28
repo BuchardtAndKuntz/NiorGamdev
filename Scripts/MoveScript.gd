@@ -51,6 +51,7 @@ func processJump():
 		
 		#Are we falling? then are we gliding? 
 	if not is_on_floor() && playerVelocity.y>=0:
+			glide()
 			isGliding = Input.is_action_pressed("jump")
 	
 	if is_on_floor():
@@ -61,5 +62,11 @@ func jump():
 	playerVelocity.y = -jumpHeight
 	jumped = true
 func doubleJump():
-	playerVelocity.y = -jumpHeight
-	hasDoubleJumped = true
+	if AbilityFlags.hasDoubleJump:
+		playerVelocity.y = -jumpHeight
+		hasDoubleJumped = true
+func glide():
+	if AbilityFlags.hasGlide:
+		isGliding = Input.is_action_pressed("jump")
+	else:
+		isGliding = false
