@@ -9,13 +9,14 @@ var SwapTimer
 var disappearTimer
 var disappear = false
 onready var lightSource = $OwlBody/Light2D
-
+onready var animationSprite = $OwlBody/OwlSprite
 onready var OwlBody = $OwlBody
 var startPos
 var velocity = Vector2.ZERO
 var isRecalling
 var parent
-
+var action = "Idle"
+var facing = "Right"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -48,6 +49,19 @@ func reduceTimer(delta):
 		disappearTimer=0
 		resetOwl()
 	
+	
+	
+	
+
+func processAnimation():
+	match action:
+		"Idle":
+			if facing == "Right":
+				animationSprite.play("RightIdle")
+			elif facing == "Left":
+				animationSprite.play("LeftIdle")
+
+
 func MoveOwl():
 	if (startPos-OwlBody.get_global_transform().origin).length()>MaxDistance && visible==true:
 		if not disappear:
@@ -62,6 +76,12 @@ func MoveOwl():
 		else:
 			velocity = recall()
 		
+	
+	if velocity.x >= 0: 
+		facing = "Right"
+	else:
+		facing = "Left"
+	processAnimation()
 	
 	OwlBody.move_and_slide(velocity, Vector2.UP)
 
