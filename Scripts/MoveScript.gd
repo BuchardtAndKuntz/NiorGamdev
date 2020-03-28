@@ -44,18 +44,23 @@ func processmovement():
 
 func input():
 	playerVelocity.x = 0
-	if Input.is_action_pressed("ui_right"):
-		playerVelocity += Vector2.RIGHT*moveSpeed
-		facing = "Right"
-	if Input.is_action_pressed("ui_left"):
-		facing = "Left"
-		playerVelocity += Vector2.LEFT*moveSpeed
+	
+	player_controls()
+	
+	#Are we back on the floor? then reset jumps
+	if is_on_floor():
+		midAir = false
+		hasDoubleJumped = false
+		if shouldResetYVel:
+			if !Input.is_action_pressed("jump"):
+				playerVelocity.y = minGravitiy
+				shouldResetYVel = false
 	
 	if playerVelocity.x == 0:
 		action = "Idle"
 	else:
 		action = "Move"
-	processJump()
+	
 	
 	if !is_on_floor():
 		midAir = true
@@ -68,8 +73,21 @@ func input():
 				if playerVelocity.y > maxFallSpeed:
 					playerVelocity.y = maxFallSpeed
 	
-	if Input.is_action_just_pressed("ui_end"):
+	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
+
+func player_controls():
+	if !AbilityFlags.movementAllowed:
+		return
+	
+	if Input.is_action_pressed("ui_right"):
+		playerVelocity += Vector2.RIGHT*moveSpeed
+		facing = "Right"
+	if Input.is_action_pressed("ui_left"):
+		facing = "Left"
+		playerVelocity += Vector2.LEFT*moveSpeed
+	
+	processJump()
 
 func processJump():
 	#If we are jumping action is pressed go up
@@ -87,15 +105,6 @@ func processJump():
 	#Are we falling? then are we gliding? 
 	if not is_on_floor():
 			glide()
-	
-	#Are we back on the floor? then reset jumps
-	if is_on_floor():
-		midAir = false
-		hasDoubleJumped = false
-		if shouldResetYVel:
-			if !Input.is_action_pressed("jump"):
-				playerVelocity.y = minGravitiy
-				shouldResetYVel = false
 
 #Single jump
 func jump():

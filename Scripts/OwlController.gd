@@ -30,6 +30,16 @@ func _ready():
 
 func _physics_process(delta):
 	reduceTimer(delta)
+	
+	owl_controls()
+		
+	MoveOwl()
+	
+
+func owl_controls():
+	if !AbilityFlags.movementAllowed:
+		return
+	
 	if  Input.is_action_just_pressed("ui_shoot_and_recall"):
 		if canThrow:
 			throw(get_global_mouse_position())
@@ -37,9 +47,6 @@ func _physics_process(delta):
 			isRecalling = true	
 	if not canThrow && Input.is_action_just_pressed("ui_teleport"):
 		swap()
-		
-	MoveOwl()
-	
 
 #Reduces the owlswap timer
 func reduceTimer(delta):

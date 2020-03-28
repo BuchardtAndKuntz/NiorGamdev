@@ -8,3 +8,5 @@ var hasOwlSwitch = false
 var canThrowOwl = false
 
 var pickedUpOwl = false
+var movementAllowed = true
+
