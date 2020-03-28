@@ -9,6 +9,8 @@ var midAir = false
 var hasDoubleJumped = false
 var isGliding = false
 
+
+
 func _physics_process(delta):
 	
 	processmovement()

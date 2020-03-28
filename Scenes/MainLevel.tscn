@@ -24,6 +24,7 @@ position = Vector2( 561.965, 102.762 )
 offset = Vector2( 0, -70 )
 current = true
 smoothing_enabled = true
+smoothing_speed = 10.0
 
 [node name="OwlRoot" parent="Player" instance=ExtResource( 5 )]
 position = Vector2( 20, -30 )

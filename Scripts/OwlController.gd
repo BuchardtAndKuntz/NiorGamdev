@@ -33,6 +33,7 @@ func _physics_process(delta):
 	MoveOwl()
 	
 
+#Reduces the owlswap timer
 func reduceTimer(delta):
 	timer+=delta
 
