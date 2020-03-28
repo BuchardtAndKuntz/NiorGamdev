@@ -15,7 +15,8 @@ var facing = "Right"
 var action = "Idle"
 onready var animationSprite = $PlayerSprite
 
-
+func getName():
+	return "Player"
 
 func _physics_process(delta):
 	processmovement()

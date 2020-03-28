@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GameObjects/TileMaps/tileset_temp.tres" type="TileSet" id=1]
 [ext_resource path="res://GameObjects/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/PickupScreens/PickUpScreen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Images/background_01_temp.png" type="Texture" id=4]
 [ext_resource path="res://GameObjects/Owl.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GameObjects/PickUpOwl.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 
@@ -28,6 +30,12 @@ current = true
 smoothing_enabled = true
 smoothing_speed = 10.0
 
+[node name="PickUpScreen" parent="Player/Camera2D" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
 [node name="OwlRoot" parent="Player" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 20, -30 )
@@ -42,3 +50,6 @@ margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Node2D" parent="." instance=ExtResource( 6 )]
+position = Vector2( 115.001, 397.001 )

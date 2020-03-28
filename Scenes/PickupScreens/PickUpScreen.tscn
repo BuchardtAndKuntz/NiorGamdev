@@ -1,0 +1,162 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Graphics/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/PickupScreens/PickUpScreen.gd" type="Script" id=2]
+
+[node name="PickUpScreen" type="Control"]
+light_mask = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DoubleJump" type="Panel" parent="."]
+visible = false
+anchor_right = 0.998047
+anchor_bottom = 0.683333
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DoubleJumpLabel" type="Label" parent="DoubleJump"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -355.0
+margin_top = -205.0
+margin_right = 355.0
+margin_bottom = 205.0
+text = "
+Flight elixir picked up! 
+
+
+Press the jump button in mid air to jump a second time
+
+
+
+
+
+
+
+
+
+Press enter to continue"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Glide" type="Panel" parent="."]
+visible = false
+anchor_right = 0.998047
+anchor_bottom = 0.683333
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Glide"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -355.0
+margin_top = -205.0
+margin_right = 355.0
+margin_bottom = 205.0
+text = "
+Feather potion picked up! 
+
+hold the jump button after a jump to glide in the air!
+
+
+
+
+
+
+
+
+Press enter to continue"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Swap" type="Panel" parent="."]
+visible = false
+anchor_right = 0.998047
+anchor_bottom = 0.683333
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Swap"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -355.0
+margin_top = -205.0
+margin_right = 343.0
+margin_bottom = 205.0
+text = "
+Polymorph juice picked up! 
+
+
+Press the right mouse button after throwing the owl,
+ to swap positions with it!
+
+
+
+
+
+
+
+
+Press enter to continue"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThrowOwl" type="Panel" parent="."]
+visible = false
+anchor_right = 0.998047
+anchor_bottom = 0.683333
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="ThrowOwl"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -355.0
+margin_top = -205.0
+margin_right = 355.0
+margin_bottom = 204.0
+text = "
+The smoking owl has reluctently been picked up! 
+
+
+Press left mouse button to throw the owl!
+
+
+
+
+
+Press it again to recall it to you
+
+
+
+
+
+Press enter to continue"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
