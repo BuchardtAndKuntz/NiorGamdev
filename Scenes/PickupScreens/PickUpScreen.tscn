@@ -16,6 +16,7 @@ __meta__ = {
 
 [node name="DoubleJump" type="Panel" parent="."]
 visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 0.998047
 anchor_bottom = 0.683333
 __meta__ = {
@@ -53,6 +54,7 @@ __meta__ = {
 
 [node name="Glide" type="Panel" parent="."]
 visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 0.998047
 anchor_bottom = 0.683333
 __meta__ = {
@@ -88,6 +90,7 @@ __meta__ = {
 
 [node name="Swap" type="Panel" parent="."]
 visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 0.998047
 anchor_bottom = 0.683333
 __meta__ = {
@@ -125,6 +128,7 @@ __meta__ = {
 
 [node name="ThrowOwl" type="Panel" parent="."]
 visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 0.998047
 anchor_bottom = 0.683333
 __meta__ = {

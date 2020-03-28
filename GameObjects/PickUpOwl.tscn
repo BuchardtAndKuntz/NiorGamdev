@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Graphics/OwlAnimations.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Graphics/OwlAnims/OwlAnimations.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://GameObjects/PickUp.gd" type="Script" id=2]
 [ext_resource path="res://Images/light_03_owl.png" type="Texture" id=3]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 16.3831 )

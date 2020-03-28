@@ -2,11 +2,11 @@
 
 [ext_resource path="res://Scripts/OwlController.gd" type="Script" id=2]
 [ext_resource path="res://Images/light_02.png" type="Texture" id=3]
-[ext_resource path="res://Graphics/OwlAnimations.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://Graphics/OwlAnims/OwlAnimations.tres" type="SpriteFrames" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 36.0618
-height = 36.2103
+height = 17.2714
 
 [node name="OwlRoot" type="Node2D"]
 scale = Vector2( 0.3, 0.3 )
@@ -22,10 +22,11 @@ scale = Vector2( 0.3, 0.3 )
 shape = SubResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="OwlBody"]
+position = Vector2( 0, -0.231476 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 3 )
 
 [node name="OwlSprite" type="AnimatedSprite" parent="OwlBody"]
 scale = Vector2( 0.3, 0.3 )
 frames = ExtResource( 4 )
-animation = "RightIdle"
+animation = "LeftIdle"

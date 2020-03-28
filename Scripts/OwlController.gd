@@ -17,6 +17,7 @@ var velocity = Vector2.ZERO
 var isRecalling
 var parent
 var action = "Idle"
+var lastAction = "Idle"
 var facing = "Right"
 
 # Called when the node enters the scene tree for the first time.
@@ -25,14 +26,16 @@ func _ready():
 	disappearTimer = 0
 	parent = get_parent()
 	startPos = position
-	pass # Replace with function body.
+	animationSprite.connect("animation_finished", self, "animFinished")
 
+func animFinished():
+	if lastAction=="Vanish":
+		disappearTimer=0
+		resetOwl()
 
 func _physics_process(delta):
 	reduceTimer(delta)
-	
 	owl_controls()
-		
 	MoveOwl()
 	
 
@@ -43,8 +46,8 @@ func owl_controls():
 	if  Input.is_action_just_pressed("ui_shoot_and_recall"):
 		if canThrow:
 			throw(get_global_mouse_position())
-		else:
-			isRecalling = true	
+		elif action!="Vanish":
+			isRecalling = true
 	if not canThrow && Input.is_action_just_pressed("ui_teleport"):
 		swap()
 
@@ -55,19 +58,47 @@ func reduceTimer(delta):
 		disappearTimer+=delta
 	if disappearTimer>disappearTime:
 		disappearTimer=0
-		resetOwl()
+		action = "Vanish"
+		print("Owl need to be gone", animationSprite.animation)
+		
+#		resetOwl()
 	
 	
 	
 	
 
 func processAnimation():
+	
 	match action:
 		"Idle":
 			if facing == "Right":
 				animationSprite.play("RightIdle")
 			elif facing == "Left":
 				animationSprite.play("LeftIdle")
+		"Fly":
+			if facing == "Right":
+				animationSprite.play("RightFly")
+			elif facing == "Left":
+				animationSprite.play("LeftFly")
+		"Vanish":
+			if facing == "Right":
+				animationSprite.play("RightVanish")
+				
+			elif facing == "Left":
+				animationSprite.play("LeftVanish")
+		"Spawn":
+			if facing == "Right":
+				animationSprite.play("RightSpawn")
+				
+			elif facing == "Left":
+				animationSprite.play("LeftSpawn")
+		"Land":
+			if facing == "Right":
+				animationSprite.play("RightLanding")
+			elif facing == "Left":
+				animationSprite.play("LeftLanding")
+	animationSprite.set_centered(true)
+	lastAction = action
 
 
 func MoveOwl():
@@ -75,9 +106,13 @@ func MoveOwl():
 	if ((startPos-OwlBody.get_global_transform().origin).length()>MaxDistance || OwlBody.is_on_wall() || OwlBody.is_on_ceiling()) && visible==true :
 		if not OwlBody.is_on_floor():
 			velocity = Vector2(0,decendSpeed)
+			action = "Land"
 		else:
 			velocity = Vector2.ZERO
+			action = "Idle"
 	if OwlBody.is_on_floor() && not disappear:
+			action = "Idle"
+			velocity.x = 0
 			disappearTimer = 0
 			disappear=true
 			
@@ -88,16 +123,21 @@ func MoveOwl():
 			velocity = recall()
 		
 	
-	if velocity.x >= 0: 
+	if velocity.x > 0: 
 		facing = "Right"
-	else:
+		if action == "Spawn" && !animationSprite.is_playing():
+			action = "Fly"
+	elif velocity.x < 0:
 		facing = "Left"
+		if action == "Spawn" && !animationSprite.is_playing():
+			action = "Fly"
 	processAnimation()
 	
 	OwlBody.move_and_slide(velocity, Vector2.UP)
 
 func throw(destination):
 	if canThrow && AbilityFlags.canThrowOwl:
+		action = "Spawn"
 		visible = true
 		lightSource.enabled = true
 		disappear = false
@@ -107,6 +147,7 @@ func throw(destination):
 		OwlBody.position = currentPos
 		startPos = get_global_transform().origin
 		velocity = (destination-startPos).normalized()*ThrowSpeed
+
 #Swaps the position of the player and the owl
 func swap():
 	#Checks if the swap cooldown is over
@@ -127,6 +168,8 @@ func resetOwl():
 	disappear = false
 	lightSource.enabled = false
 	OwlBody.set_as_toplevel(false)
+	animationSprite.play("RightIdle")
+	action = "Idle"
 	velocity = Vector2.ZERO
 	OwlBody.position = Vector2.ZERO
 
