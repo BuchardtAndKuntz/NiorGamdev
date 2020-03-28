@@ -5,9 +5,11 @@ export var moveSpeed = 600
 export var fallSpeed = 53
 export var jumpHeight = 1000
 export var glideSpeed = 20
-var jumped = false
+var midAir = false
 var hasDoubleJumped = false
 var isGliding = false
+
+
 
 func _physics_process(delta):
 	
@@ -27,7 +29,7 @@ func input():
 	processJump()
 	
 	if !is_on_floor():
-		jumped = true
+		midAir = true
 		if isGliding:
 			playerVelocity.y = glideSpeed
 		else:
@@ -39,9 +41,9 @@ func input():
 func processJump():
 	#If we are jumping action is pressed go up
 	if Input.is_action_just_pressed("jump"):
-		if not jumped:
+		if not midAir:
 			jump()
-		elif jumped && not hasDoubleJumped:
+		elif midAir && not hasDoubleJumped:
 			doubleJump()
 			
 	#If we stop pressing jump we stop the upwards momentum
@@ -51,15 +53,24 @@ func processJump():
 		
 		#Are we falling? then are we gliding? 
 	if not is_on_floor() && playerVelocity.y>=0:
-			isGliding = Input.is_action_pressed("jump")
-	
+			glide()
+	#Are we back on the floor? then reset jumps
 	if is_on_floor():
-		jumped = false
+		midAir = false
 		hasDoubleJumped = false
 
+#Single jump
 func jump():
 	playerVelocity.y = -jumpHeight
-	jumped = true
+	midAir = true
+#Midair jump
 func doubleJump():
-	playerVelocity.y = -jumpHeight
-	hasDoubleJumped = true
+	if AbilityFlags.hasDoubleJump:
+		playerVelocity.y = -jumpHeight
+		hasDoubleJumped = true
+#Midair glide
+func glide():
+	if AbilityFlags.hasGlide:
+		isGliding = Input.is_action_pressed("jump")
+	else:
+		isGliding = false
