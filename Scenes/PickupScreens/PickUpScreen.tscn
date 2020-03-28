@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Graphics/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/PickupScreens/PickUpScreen.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/PickupScreens/WinScreen.gd" type="Script" id=3]
 
 [node name="PickUpScreen" type="Control"]
 show_behind_parent = true
@@ -152,10 +153,10 @@ Press left mouse button to throw the owl!
 
 
 
-
-
 Press it again to recall it to you
 
+Use the owl to scout 
+for platforms in the darkness
 
 
 
@@ -165,3 +166,32 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="WinScreen" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="WinScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Congratulations you made it home to your cauldron!
+Time to for some poultry soup!
+
+
+
+You found x of out 100 ingredients!
+
+Press escape to quit 
+or 
+press Space to keep playing"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="visibility_changed" from="WinScreen" to="WinScreen" method="_on_WinScreen_visibility_changed"]

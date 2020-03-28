@@ -120,7 +120,7 @@ animations = [ {
 "frames": [ ExtResource( 73 ), ExtResource( 72 ), ExtResource( 71 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 85 ), ExtResource( 82 ), ExtResource( 86 ) ],
 "loop": true,
 "name": "LeftVanish",
-"speed": 4.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 5 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 12 ), ExtResource( 10 ) ],
 "loop": true,

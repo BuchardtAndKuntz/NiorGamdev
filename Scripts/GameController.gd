@@ -25,4 +25,3 @@ func initial_drop_check():
 		if !player.midAir:
 			AbilityFlags.movementAllowed = true
 			on_initial_cutscene = false
-			print("TRIGGERED")

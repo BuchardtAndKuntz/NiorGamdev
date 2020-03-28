@@ -23,6 +23,11 @@ config/icon="res://icon.png"
 
 AbilityFlags="*res://Scripts/AbilityFlags.gd"
 
+[display]
+
+window/size/resizable=false
+window/size/fullscreen=true
+
 [input]
 
 ui_accept={

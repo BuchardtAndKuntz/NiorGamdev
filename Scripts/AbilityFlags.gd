@@ -11,6 +11,7 @@ var pickedUpGlide = false
 var pickedUpJump = false
 var pickedUpSwap = false
 var pickedUpOwl = false
+var WIN = false
 var movementAllowed = true
 
 

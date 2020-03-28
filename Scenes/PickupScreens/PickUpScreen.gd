@@ -14,6 +14,8 @@ var shown = false
 
 
 func _process(delta):
+	if AbilityFlags.WIN:
+		winScreen()
 	if AbilityFlags.pickedUpOwl:
 		owlPicked()
 	if AbilityFlags.pickedUpGlide:
@@ -25,21 +27,25 @@ func _process(delta):
 	
 	if shown:
 		AbilityFlags.movementAllowed = false
-		print(AbilityFlags.movementAllowed)
 		if Input.is_action_just_pressed("ui_accept") :
 			AbilityFlags.movementAllowed = true
-			print(AbilityFlags.movementAllowed)
+			AbilityFlags.WIN = false
 			hideAll()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+func winScreen():
+	$WinScreen.show()
+	shown = true
+
 func hideAll():
 	jump.hide()
 	glide.hide()
 	swap.hide()
 	owl.hide()
+	$WinScreen.hide()
 	shown = false
 
 func doubleJumpPicked():

@@ -68,7 +68,7 @@ func reduceTimer(delta):
 	
 
 func processAnimation():
-	
+	#BUG !Bird is flying backwards if we throw it to the left
 	match action:
 		"Idle":
 			if facing == "Right":
@@ -78,12 +78,11 @@ func processAnimation():
 		"Fly":
 			if facing == "Right":
 				animationSprite.play("RightFly")
-			elif facing == "Left":
+			if facing == "Left":
 				animationSprite.play("LeftFly")
 		"Vanish":
 			if facing == "Right":
 				animationSprite.play("RightVanish")
-				
 			elif facing == "Left":
 				animationSprite.play("LeftVanish")
 		"Spawn":
@@ -99,6 +98,7 @@ func processAnimation():
 				animationSprite.play("LeftLanding")
 	animationSprite.set_centered(true)
 	lastAction = action
+	print("Bird is facing ", facing)
 
 
 func MoveOwl():
@@ -121,9 +121,10 @@ func MoveOwl():
 			resetOwl()
 		else:
 			velocity = recall()
+			action = "Fly"
 		
-	
-	if velocity.x > 0: 
+	#print("Bird speed Is ", velocity.x)
+	if velocity.x >= 0: 
 		facing = "Right"
 		if action == "Spawn" && !animationSprite.is_playing():
 			action = "Fly"
@@ -131,6 +132,9 @@ func MoveOwl():
 		facing = "Left"
 		if action == "Spawn" && !animationSprite.is_playing():
 			action = "Fly"
+	
+
+	
 	processAnimation()
 	
 	OwlBody.move_and_slide(velocity, Vector2.UP)
