@@ -8,4 +8,4 @@ func _on_StartGame_pressed():
 
 func _process(delta):
 	if Input.is_action_just_pressed("jump") && visible==true:
-		get_tree().change_scene("res://Scenes/MainLevel.tscn")
+		get_tree().change_scene("res://Scenes/Game.tscn")
