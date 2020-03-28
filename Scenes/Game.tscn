@@ -53,7 +53,6 @@ zoom = Vector2( 0.5, 0.5 )
 visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.0392157, 0.0392157, 0.0392157, 0.941176 )
 
 [node name="Pickups" type="Node2D" parent="."]
