@@ -51,7 +51,6 @@ func MoveOwl():
 	if (startPos-OwlBody.get_global_transform().origin).length()>MaxDistance && visible==true:
 		if not disappear:
 			disappearTimer = 0
-			print("Hallo, nu skal du starte med at reset")
 			disappear=true
 		
 		velocity = Vector2.ZERO
