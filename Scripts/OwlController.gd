@@ -28,11 +28,12 @@ func _ready():
 
 func _physics_process(delta):
 	reduceTimer(delta)
-	if  Input.is_action_just_pressed("ui_shoot"):
-		throw(get_global_mouse_position())
-	elif  Input.is_action_just_pressed("ui_recall"):
-		isRecalling = true
-	if not canThrow && Input.is_action_just_pressed("ui_home"):
+	if  Input.is_action_just_pressed("ui_shoot_and_recall"):
+		if canThrow:
+			throw(get_global_mouse_position())
+		else:
+			isRecalling = true	
+	if not canThrow && Input.is_action_just_pressed("ui_teleport"):
 		swap()
 		
 	MoveOwl()
@@ -84,6 +85,7 @@ func swap():
 		var oldOPos = OwlBody.position
 		parent.position = oldOPos
 		OwlBody.position = oldPPos
+		resetOwl()
 
 #Resets the owl to the starting pos and roots it to the player pos
 func resetOwl():
