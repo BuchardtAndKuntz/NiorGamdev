@@ -9,6 +9,7 @@ export var maxFallSpeed = 1200
 var midAir = false
 var hasDoubleJumped = false
 var isGliding = false
+var shouldResetYVel = false
 var facing = "Right"
 var action = "Idle"
 onready var animationSprite = $PlayerSprite
@@ -16,7 +17,6 @@ onready var animationSprite = $PlayerSprite
 
 
 func _physics_process(delta):
-	print("Player vel y: " + str(playerVelocity.y))
 	processmovement()
 	input()
 	processAnimation()
@@ -55,6 +55,7 @@ func input():
 	
 	if !is_on_floor():
 		midAir = true
+		shouldResetYVel = true
 		if isGliding:
 			playerVelocity.y = glideSpeed
 		else:
@@ -86,8 +87,9 @@ func processJump():
 	if is_on_floor():
 		midAir = false
 		hasDoubleJumped = false
-		if !Input.is_action_just_pressed("jump"):
-			playerVelocity.y = 0
+		if shouldResetYVel:
+			playerVelocity.y = 10
+			shouldResetYVel = false
 
 #Single jump
 func jump():
