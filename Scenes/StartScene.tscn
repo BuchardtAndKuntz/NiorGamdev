@@ -1,16 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/CloseGame.gd" type="Script" id=1]
-[ext_resource path="res://Graphics/wizard_move_left.tres" type="Texture" id=3]
-[ext_resource path="res://Scenes/MoveTest.gd" type="Script" id=4]
-[ext_resource path="res://Graphics/wizard_move_right.tres" type="Texture" id=5]
-[ext_resource path="res://Graphics/wizard_idle_right.tres" type="Texture" id=6]
-[ext_resource path="res://Scenes/JumpView.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/ControlPanel.gd" type="Script" id=8]
+[ext_resource path="res://Graphics/Theme.tres" type="Theme" id=2]
+[ext_resource path="res://IntroScene/IntroControls.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Intro.gd" type="Script" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -42,6 +41,7 @@ margin_left = -81.3789
 margin_top = -19.3334
 margin_right = 81.3789
 margin_bottom = 19.3334
+custom_colors/font_color = Color( 0.854902, 0.584314, 0.768627, 1 )
 text = "Start Game"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -55,155 +55,14 @@ anchor_bottom = 0.688
 margin_left = -84.3203
 margin_top = -38.667
 margin_right = 84.3203
+custom_colors/font_color = Color( 0.854902, 0.584314, 0.768627, 1 )
 text = "Close game"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ControlPanel" type="Panel" parent="Panel"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Label3" type="Label" parent="Panel/ControlPanel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -203.5
-margin_top = -24.0
-margin_right = 203.5
-margin_bottom = 24.0
-text = "Gather ingredients for your potion to win the game
-
-You might need to gain additional skills to gather all ingredients"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Skip" type="Label" parent="Panel/ControlPanel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -93.0
-margin_top = 100.0
-margin_right = 93.0
-margin_bottom = 114.0
-text = "Press Spacebar to start game"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Jump" type="Control" parent="Panel/ControlPanel"]
-anchor_left = 0.78125
-anchor_top = 0.3
-anchor_right = 0.820313
-anchor_bottom = 0.366667
-margin_top = 1.52588e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="JumpView" type="Control" parent="Panel/ControlPanel/Jump"]
-anchor_right = 0.0390625
-anchor_bottom = 0.0666666
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Right" type="TextureRect" parent="Panel/ControlPanel/Jump/JumpView"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -28.7101
-margin_top = -35.6192
-margin_right = 26.2899
-margin_bottom = 43.3808
-texture = ExtResource( 6 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="Panel/ControlPanel/Jump"]
-anchor_left = -1.8875
-anchor_top = 1.875
-anchor_right = 2.8875
-anchor_bottom = 2.225
-text = "W, Up-arrow or space to jump"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Move" type="Control" parent="Panel/ControlPanel"]
-anchor_left = 0.224609
-anchor_top = 0.3
-anchor_right = 0.263672
-anchor_bottom = 0.366667
-margin_top = 1.52588e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="MoveView" type="Control" parent="Panel/ControlPanel/Move"]
-anchor_left = -0.75
-anchor_top = 0.5
-anchor_right = -0.710937
-anchor_bottom = 0.566667
-margin_right = -1.90735e-06
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Left" type="TextureRect" parent="Panel/ControlPanel/Move/MoveView"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -27.5
-margin_top = -39.5
-margin_right = 27.5
-margin_bottom = 39.5
-texture = ExtResource( 3 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Right" type="TextureRect" parent="Panel/ControlPanel/Move/MoveView"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -27.5
-margin_top = -39.5
-margin_right = 27.5
-margin_bottom = 39.5
-texture = ExtResource( 5 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Panel/ControlPanel/Move"]
-anchor_left = -1.8375
-anchor_top = 1.875
-anchor_right = 2.8375
-anchor_bottom = 2.225
-text = "WASD or Arrowkeys to move "
-__meta__ = {
-"_edit_use_anchors_": true
-}
+[node name="ControlPanel" parent="Panel" instance=ExtResource( 3 )]
+visible = true
 [connection signal="pressed" from="Panel/StartGame" to="Panel/ControlPanel" method="_on_StartGame_pressed"]
 [connection signal="pressed" from="Panel/Close" to="Panel/Close" method="_on_Close_pressed"]

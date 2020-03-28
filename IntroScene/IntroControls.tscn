@@ -1,0 +1,145 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Graphics/wizard_move_right.tres" type="Texture" id=1]
+[ext_resource path="res://Graphics/wizard_move_left.tres" type="Texture" id=2]
+[ext_resource path="res://Graphics/wizard_idle_right.tres" type="Texture" id=3]
+[ext_resource path="res://Scripts/JumpView.gd" type="Script" id=4]
+[ext_resource path="res://IntroScene/IntroControls.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/MoveTest.gd" type="Script" id=6]
+
+[node name="ControlPanel" type="Panel"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label3" type="Label" parent="."]
+anchor_left = 0.0797561
+anchor_top = 0.602359
+anchor_right = 0.925459
+anchor_bottom = 0.725693
+text = "Gather ingredients for your potion to win the game
+
+You might need to gain additional skills to gather all ingredients"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Skip" type="Label" parent="."]
+anchor_left = 0.320967
+anchor_top = 0.769026
+anchor_right = 0.684248
+anchor_bottom = 0.815693
+text = "Press Spacebar to start game"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Jump" type="Control" parent="."]
+anchor_left = 0.78125
+anchor_top = 0.3
+anchor_right = 0.820313
+anchor_bottom = 0.366667
+margin_top = 1.52588e-05
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="JumpView" type="Control" parent="Jump"]
+anchor_right = 0.0390625
+anchor_bottom = 0.0666666
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Right" type="TextureRect" parent="Jump/JumpView"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -28.7101
+margin_top = -35.6192
+margin_right = 26.2899
+margin_bottom = 43.3808
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Jump"]
+anchor_left = -3.1532
+anchor_top = 1.7018
+anchor_right = 3.2218
+anchor_bottom = 2.4018
+text = "W, SpaceBar or Up-arrow to jump"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Move" type="Control" parent="."]
+anchor_left = 0.224609
+anchor_top = 0.3
+anchor_right = 0.263672
+anchor_bottom = 0.366667
+margin_top = 1.52588e-05
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MoveView" type="Control" parent="Move"]
+anchor_left = -0.75
+anchor_top = 0.5
+anchor_right = -0.710937
+anchor_bottom = 0.566667
+margin_right = -1.90735e-06
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Left" type="TextureRect" parent="Move/MoveView"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -27.5
+margin_top = -39.5
+margin_right = 27.5
+margin_bottom = 39.5
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="TextureRect" parent="Move/MoveView"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -27.5
+margin_top = -39.5
+margin_right = 27.5
+margin_bottom = 39.5
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Move"]
+anchor_left = -4.64407
+anchor_top = 1.84056
+anchor_right = 4.00593
+anchor_bottom = 2.54056
+text = "WASD or Arrowkeys to move "
+__meta__ = {
+"_edit_use_anchors_": true
+}
