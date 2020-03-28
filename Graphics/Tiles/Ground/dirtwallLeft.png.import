@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stalaktite.png-e39b6b54e433c1796cdefe277e7a60f3.stex"
+path="res://.import/dirtwallLeft.png-327a4800a34cb45d3b97696fdfceefad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Tiles/stalaktite.png"
-dest_files=[ "res://.import/stalaktite.png-e39b6b54e433c1796cdefe277e7a60f3.stex" ]
+source_file="res://Graphics/Tiles/Ground/dirtwallLeft.png"
+dest_files=[ "res://.import/dirtwallLeft.png-327a4800a34cb45d3b97696fdfceefad.stex" ]
 
 [params]
 

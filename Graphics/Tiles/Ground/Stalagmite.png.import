@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Stalagmite.png-081bc37a718b1760e026918dc426b07c.stex"
+path="res://.import/Stalagmite.png-51aad5df612146305213ac839cb94e7a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Tiles/Stalagmite.png"
-dest_files=[ "res://.import/Stalagmite.png-081bc37a718b1760e026918dc426b07c.stex" ]
+source_file="res://Graphics/Tiles/Ground/Stalagmite.png"
+dest_files=[ "res://.import/Stalagmite.png-51aad5df612146305213ac839cb94e7a.stex" ]
 
 [params]
 
