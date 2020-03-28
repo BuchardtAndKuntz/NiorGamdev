@@ -76,3 +76,6 @@ __meta__ = {
 
 [node name="Node2D" parent="." instance=ExtResource( 6 )]
 position = Vector2( 115.001, 397.001 )
+
+[node name="CauldronRoot" parent="." instance=ExtResource( 7 )]
+position = Vector2( 290.397, 479.457 )
