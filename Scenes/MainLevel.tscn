@@ -29,6 +29,7 @@ smoothing_enabled = true
 smoothing_speed = 10.0
 
 [node name="OwlRoot" parent="Player" instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 20, -30 )
 scale = Vector2( 1, 1 )
 

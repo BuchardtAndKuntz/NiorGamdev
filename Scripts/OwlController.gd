@@ -3,8 +3,12 @@ extends Node2D
 export var canThrow = true
 export var ThrowSpeed = 500
 export var MaxDistance = 500
-export var SwapTimer = 2.0
-var timer
+export var disappearTime = 10.0
+export var SwapTime = 2.0
+var SwapTimer
+var disappearTimer
+var disappear = false
+onready var lightSource = $OwlBody/Light2D
 
 onready var OwlBody = $OwlBody
 var startPos
@@ -15,7 +19,8 @@ var parent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer = 0
+	SwapTimer = 0
+	disappearTimer = 0
 	parent = get_parent()
 	startPos = position
 	pass # Replace with function body.
@@ -35,10 +40,19 @@ func _physics_process(delta):
 
 #Reduces the owlswap timer
 func reduceTimer(delta):
-	timer+=delta
-
+	SwapTimer+=delta
+	if disappear:
+		disappearTimer+=delta
+	if disappearTimer>disappearTime:
+		disappearTimer=0
+		resetOwl()
+	
 func MoveOwl():
-	if (startPos-OwlBody.get_global_transform().origin).length()>MaxDistance:
+	if (startPos-OwlBody.get_global_transform().origin).length()>MaxDistance && visible==true:
+		if not disappear:
+			disappearTimer = 0
+			disappear=true
+		
 		velocity = Vector2.ZERO
 	
 	if(isRecalling):
@@ -52,6 +66,9 @@ func MoveOwl():
 
 func throw(destination):
 	if canThrow && AbilityFlags.canThrowOwl:
+		visible = true
+		lightSource.enabled = true
+		disappear = false
 		canThrow = false
 		var currentPos = OwlBody.get_global_transform().origin
 		OwlBody.set_as_toplevel(true)
@@ -61,8 +78,8 @@ func throw(destination):
 #Swaps the position of the player and the owl
 func swap():
 	#Checks if the swap cooldown is over
-	if timer>SwapTimer:
-		timer = 0
+	if SwapTimer>SwapTime:
+		SwapTimer = 0
 		var oldPPos = parent.position
 		var oldOPos = OwlBody.position
 		parent.position = oldOPos
@@ -70,8 +87,11 @@ func swap():
 
 #Resets the owl to the starting pos and roots it to the player pos
 func resetOwl():
+	visible = false
 	canThrow = true
 	isRecalling = false
+	disappear = false
+	lightSource.enabled = false
 	OwlBody.set_as_toplevel(false)
 	velocity = Vector2.ZERO
 	OwlBody.position = Vector2.ZERO
