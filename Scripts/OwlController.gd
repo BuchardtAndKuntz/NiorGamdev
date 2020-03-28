@@ -8,6 +8,7 @@ export var SwapTime = 2.0
 var SwapTimer
 var disappearTimer
 var disappear = false
+export var decendSpeed = 53
 onready var lightSource = $OwlBody/Light2D
 onready var animationSprite = $OwlBody/OwlSprite
 onready var OwlBody = $OwlBody
@@ -63,13 +64,16 @@ func processAnimation():
 
 
 func MoveOwl():
-	if (startPos-OwlBody.get_global_transform().origin).length()>MaxDistance && visible==true:
-		if not disappear:
+	#If the owl has hit the max distance and is out(visible)
+	if ((startPos-OwlBody.get_global_transform().origin).length()>MaxDistance || OwlBody.is_on_wall() || OwlBody.is_on_ceiling()) && visible==true :
+		if not OwlBody.is_on_floor():
+			velocity = Vector2(0,decendSpeed)
+		else:
+			velocity = Vector2.ZERO
+	if OwlBody.is_on_floor() && not disappear:
 			disappearTimer = 0
 			disappear=true
-		
-		velocity = Vector2.ZERO
-	
+			
 	if(isRecalling):
 		if((parent.get_global_transform().origin -OwlBody.get_global_transform().origin).length()<50):
 			resetOwl()
