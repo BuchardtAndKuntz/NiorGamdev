@@ -16,9 +16,20 @@ var shown = false
 func _process(delta):
 	if AbilityFlags.pickedUpOwl:
 		owlPicked()
+	if AbilityFlags.pickedUpGlide:
+		glidePicked()
+	if AbilityFlags.pickedUpJump:
+		doubleJumpPicked()
+	if AbilityFlags.pickedUpSwap:
+		swapPicked()
 	
-	if shown && Input.is_action_just_released("ui_accept") :
-		hideAll()
+	if shown:
+		AbilityFlags.movementAllowed = false
+		print(AbilityFlags.movementAllowed)
+		if Input.is_action_just_pressed("ui_accept") :
+			AbilityFlags.movementAllowed = true
+			print(AbilityFlags.movementAllowed)
+			hideAll()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -29,17 +40,24 @@ func hideAll():
 	glide.hide()
 	swap.hide()
 	owl.hide()
+	shown = false
 
 func doubleJumpPicked():
 	jump.show()
+	AbilityFlags.pickedUpJump = false
+	AbilityFlags.hasDoubleJump = true
 	shown = true
 
 func glidePicked():
 	glide.show()
+	AbilityFlags.pickedUpGlide = false
+	AbilityFlags.hasGlide = true
 	shown = true
 
 func swapPicked():
 	swap.show()
+	AbilityFlags.pickedUpSwap = false
+	AbilityFlags.hasOwlSwitch = true
 	shown = true
 
 func owlPicked():
