@@ -8,6 +8,9 @@ export var glideSpeed = 20
 var midAir = false
 var hasDoubleJumped = false
 var isGliding = false
+var facing = "Right"
+var action = "Idle"
+onready var animationSprite = $PlayerSprite
 
 
 
@@ -15,6 +18,16 @@ func _physics_process(delta):
 	
 	processmovement()
 	input()
+	processAnimation()
+
+func processAnimation():
+	match action:
+		"Idle":
+			if facing == "Right":
+				animationSprite.play("RightIdle")
+			elif facing == "Left":
+				animationSprite.play("LeftIdle")
+
 
 func processmovement():
 	move_and_slide(playerVelocity, Vector2.UP)
@@ -24,7 +37,9 @@ func input():
 	playerVelocity.x = 0
 	if Input.is_action_pressed("ui_right"):
 		playerVelocity += Vector2.RIGHT*moveSpeed
+		facing = "Right"
 	if Input.is_action_pressed("ui_left"):
+		facing = "Left"
 		playerVelocity += Vector2.LEFT*moveSpeed
 	processJump()
 	
