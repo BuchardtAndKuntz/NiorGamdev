@@ -23,4 +23,5 @@ shape = SubResource( 1 )
 [node name="Light2D" type="Light2D" parent="Ingredient"]
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 2 )
+mode = 2
 color = Color( 1, 1, 1, 0.807843 )

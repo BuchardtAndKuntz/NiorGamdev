@@ -25,6 +25,13 @@ shape = SubResource( 1 )
 position = Vector2( 0, -0.231476 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 3 )
+mode = 2
+
+[node name="Light2D2" type="Light2D" parent="OwlBody"]
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+color = Color( 1, 1, 1, 0.219608 )
+mode = 2
 
 [node name="OwlSprite" type="AnimatedSprite" parent="OwlBody"]
 scale = Vector2( 0.3, 0.3 )
