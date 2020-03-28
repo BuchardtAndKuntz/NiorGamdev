@@ -18,16 +18,17 @@ func _physics_process(delta):
 	
 	if y<-70:
 		facing = "down"
+		reset = true
 	elif y>0:
 		facing = "up"
 		if reset:
 			timeTimer = 0
+			reset = false
 	
 	match facing:
 		"down":
 			y += delta*200
 		"up":
-			reset = true
 			if timeTimer>time:
 				reset = false
 				y -= delta*150

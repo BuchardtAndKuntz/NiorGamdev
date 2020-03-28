@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/CloseGame.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/StartGame.gd" type="Script" id=2]
 [ext_resource path="res://Graphics/wizard_move_left.tres" type="Texture" id=3]
 [ext_resource path="res://Scenes/MoveTest.gd" type="Script" id=4]
 [ext_resource path="res://Graphics/wizard_move_right.tres" type="Texture" id=5]
 [ext_resource path="res://Graphics/wizard_idle_right.tres" type="Texture" id=6]
 [ext_resource path="res://Scenes/JumpView.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/ControlPanel.gd" type="Script" id=8]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -43,7 +43,6 @@ margin_top = -19.3334
 margin_right = 81.3789
 margin_bottom = 19.3334
 text = "Start Game"
-script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -63,8 +62,10 @@ __meta__ = {
 }
 
 [node name="ControlPanel" type="Panel" parent="Panel"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -204,5 +205,5 @@ text = "WASD or Arrowkeys to move "
 __meta__ = {
 "_edit_use_anchors_": true
 }
-[connection signal="pressed" from="Panel/StartGame" to="Panel/StartGame" method="_on_StartGame_pressed"]
+[connection signal="pressed" from="Panel/StartGame" to="Panel/ControlPanel" method="_on_StartGame_pressed"]
 [connection signal="pressed" from="Panel/Close" to="Panel/Close" method="_on_Close_pressed"]
