@@ -18,3 +18,6 @@ func _physics_process(delta):
 				"Swap":
 					AbilityFlags.pickedUpSwap = true
 					get_parent().remove_child(self)
+				"Ingredient":
+					AbilityFlags.ingredients++
+					get_parent().remove_child(self)
