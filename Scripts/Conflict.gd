@@ -22,4 +22,4 @@ func _ready():
 
 func _conflictMaker():
 	overflow = overflow + 1
-	print("Test")
+	#print("Test")

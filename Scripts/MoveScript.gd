@@ -14,6 +14,11 @@ var shouldResetYVel = false
 var facing = "Right"
 var action = "Idle"
 onready var animationSprite = $PlayerSprite
+onready var tileMap = get_parent().get_node("TileMap")
+var flower_path = "res://GameObjects/Flower/FlowerTemp.tscn"
+onready var flower_root_node = get_parent().get_node("GrowingFlowers")
+var growingCheckDelay = 0.1
+var growingCheckTimer = 0
 
 func getName():
 	return "Player"
@@ -22,6 +27,7 @@ func _physics_process(delta):
 	processmovement()
 	input()
 	processAnimation()
+	# check_growing(delta)
 	
 	# print("hasDoubleJumped: " + str(hasDoubleJumped) + " - midAir: " + str(midAir))
 
@@ -121,3 +127,60 @@ func glide():
 		isGliding = Input.is_action_pressed("jump")
 	else:
 		isGliding = false
+
+func check_growing(delta):
+	
+	
+	if growingCheckTimer < growingCheckDelay:
+		growingCheckTimer += delta
+		return
+	else:
+		growingCheckTimer = 0
+	
+	
+	# Get players coords
+	var playerPos_world = transform.get_origin()
+	# print("Player pos: " + str(playerPos))
+	
+	# Convert them to x, y in tilemap coords
+	var playerPos_map = tileMap.world_to_map(playerPos_world)
+	
+	# Create surrounding coords
+	var coordList_map = []
+	coordList_map.append(playerPos_map)
+	coordList_map.append(Vector2(playerPos_map.x-1, playerPos_map.y))
+	coordList_map.append(Vector2(playerPos_map.x+1, playerPos_map.y))
+	coordList_map.append(Vector2(playerPos_map.x, playerPos_map.y+1))
+	coordList_map.append(Vector2(playerPos_map.x, playerPos_map.y-1))
+	coordList_map.append(Vector2(playerPos_map.x+1, playerPos_map.y-1))
+	coordList_map.append(Vector2(playerPos_map.x+1, playerPos_map.y+1))
+	coordList_map.append(Vector2(playerPos_map.x-1, playerPos_map.y+1))
+	coordList_map.append(Vector2(playerPos_map.x-1, playerPos_map.y-1))
+	
+	# Is tile free?
+	var toPlaceFlowers = []
+	for elem in coordList_map:
+		if tileMap.get_cell(elem.x, elem.y) == -1:
+			toPlaceFlowers.append(elem)
+	
+	
+	for pos in toPlaceFlowers:
+		spawn_flower(pos.x, pos.y)
+	
+	print("Size of list: " + str(len(toPlaceFlowers)))
+
+func spawn_flower(var x, var y):
+	# Place finish
+	var level_finish_scene = load(flower_path)
+	var level_finish_scene_instanced = level_finish_scene.instance()
+
+	# Calculate position
+	var sprite_size_vector = level_finish_scene_instanced.get_node("Sprite").get_rect().size
+	var world_pos = tileMap.map_to_world(Vector2(x, y))
+	var spawn_position = Vector2(world_pos.x + (sprite_size_vector.x /2), world_pos.y + (sprite_size_vector.y /2))
+	
+	# Set postition
+	level_finish_scene_instanced.global_translate(spawn_position)
+	
+	# Add to level
+	flower_root_node.add_child(level_finish_scene_instanced)
