@@ -21,8 +21,8 @@ func _physics_process(delta):
 		timer+=delta
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
-		print(timer)
-		print(AbilityFlags.WIN)
+		#print(timer)
+		#print(AbilityFlags.WIN)
 		if body.get_name() == "Player":
 			if timer>time:
 				AbilityFlags.WIN = true

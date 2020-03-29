@@ -21,7 +21,7 @@ func _process(delta):
 	
 func initial_drop_check():
 	if player != null:
-		print("Mid air: " + str(player.midAir))
+		#print("Mid air: " + str(player.midAir))
 		if !player.midAir:
 			AbilityFlags.movementAllowed = true
 			on_initial_cutscene = false

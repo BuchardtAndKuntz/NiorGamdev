@@ -59,7 +59,7 @@ func reduceTimer(delta):
 	if disappearTimer>disappearTime:
 		disappearTimer=0
 		action = "Vanish"
-		print("Owl need to be gone", animationSprite.animation)
+		#print("Owl need to be gone", animationSprite.animation)
 		
 #		resetOwl()
 	
@@ -98,7 +98,7 @@ func processAnimation():
 				animationSprite.play("LeftLanding")
 	animationSprite.set_centered(true)
 	lastAction = action
-	print("Bird is facing ", facing)
+	#print("Bird is facing ", facing)
 
 
 func MoveOwl():
