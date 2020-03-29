@@ -14,7 +14,7 @@ onready var animationSprite = $OwlBody/OwlSprite
 onready var OwlBody = $OwlBody
 var startPos
 var velocity = Vector2.ZERO
-var isRecalling
+var isRecalling = false
 var parent
 var action = "Idle"
 var lastAction = "Idle"
@@ -48,7 +48,7 @@ func owl_controls():
 			throw(get_global_mouse_position())
 		elif action!="Vanish":
 			playFlaponce()
-			isRecalling = true
+			isRecalling = false
 	if not canThrow && Input.is_action_just_pressed("ui_teleport"):
 		swap()
 
@@ -76,6 +76,7 @@ func processAnimation():
 				animationSprite.play("RightIdle")
 			elif facing == "Left":
 				animationSprite.play("LeftIdle")
+			playIdle()
 		"Fly":
 			if facing == "Right":
 				animationSprite.play("RightFly")
@@ -116,6 +117,10 @@ func playFoop():
 	$OwlBody/Poofs.stream = SoundController.Poof1
 	$OwlBody/Poofs.play(0.2)
 
+func playIdle():
+	$OwlBody/IdleSound.stream = SoundController.owl_idle
+	$OwlBody/IdleSound.play(0.2)
+
 func MoveOwl():
 	#If the owl has hit the max distance and is out(visible)
 	if ((startPos-OwlBody.get_global_transform().origin).length()>MaxDistance || OwlBody.is_on_wall() || OwlBody.is_on_ceiling()) && visible==true :
@@ -130,7 +135,7 @@ func MoveOwl():
 			velocity.x = 0
 			disappearTimer = 0
 			disappear=true
-			
+	
 	if(isRecalling):
 		if((parent.get_global_transform().origin -OwlBody.get_global_transform().origin).length()<50):
 			resetOwl()
