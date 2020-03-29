@@ -34,3 +34,4 @@ position = Vector2( -0.975342, 66.2772 )
 shape = SubResource( 1 )
 
 [node name="SoundPlayer" parent="Area2D" instance=ExtResource( 5 )]
+volume_db = -15.0
