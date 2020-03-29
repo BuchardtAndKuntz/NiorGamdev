@@ -40,12 +40,12 @@ func playGrab():
 	$PickUpSFX.play()
 
 func playPoof():
-	$JumpSFX.stream = SoundController.Poof1
-	$JumpSFX.play(0.1)
+	$JumpSFX.stream = SoundController.Jump1
+	$JumpSFX.play()
 
 func playPoof2():
-	$JumpSFX.stream = SoundController.Poof2
-	$JumpSFX.play(0.1)
+	$JumpSFX.stream = SoundController.Jump2
+	$JumpSFX.play()
 
 
 func processAnimation():
