@@ -9,6 +9,7 @@
 radius = 59.4859
 
 [node name="AsianLight" type="Node2D"]
+scale = Vector2( 0.3, 0.3 )
 
 [node name="Off" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -19,10 +20,11 @@ texture = ExtResource( 4 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( -3.05176e-05, 51.6227 )
-scale = Vector2( 0.162959, 0.157252 )
+scale = Vector2( 0.75, 0.75 )
 enabled = false
 texture = ExtResource( 1 )
 color = Color( 0.713726, 0.482353, 0.152941, 1 )
+mode = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 3
