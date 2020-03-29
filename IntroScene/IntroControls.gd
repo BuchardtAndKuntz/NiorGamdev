@@ -7,5 +7,5 @@ func _on_StartGame_pressed():
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("jump") && visible==true:
+	if Input.is_action_just_pressed("ui_accept") && visible==true:
 		get_tree().change_scene("res://Scenes/Game.tscn")
