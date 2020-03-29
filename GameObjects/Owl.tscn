@@ -39,3 +39,11 @@ mode = 2
 scale = Vector2( 0.3, 0.3 )
 frames = ExtResource( 4 )
 animation = "LeftIdle"
+
+[node name="FlapSound" type="AudioStreamPlayer2D" parent="OwlBody"]
+attenuation = 3.13834
+
+[node name="Poofs" type="AudioStreamPlayer2D" parent="OwlBody"]
+volume_db = -12.117
+pitch_scale = 0.88
+attenuation = 2.92817

@@ -47,6 +47,7 @@ func owl_controls():
 		if canThrow:
 			throw(get_global_mouse_position())
 		elif action!="Vanish":
+			playFlaponce()
 			isRecalling = true
 	if not canThrow && Input.is_action_just_pressed("ui_teleport"):
 		swap()
@@ -85,6 +86,7 @@ func processAnimation():
 				animationSprite.play("RightVanish")
 			elif facing == "Left":
 				animationSprite.play("LeftVanish")
+			playFoop()
 		"Spawn":
 			if facing == "Right":
 				animationSprite.play("RightSpawn")
@@ -96,10 +98,23 @@ func processAnimation():
 				animationSprite.play("RightLanding")
 			elif facing == "Left":
 				animationSprite.play("LeftLanding")
+			playFlaponce()
 	animationSprite.set_centered(true)
 	lastAction = action
 	#print("Bird is facing ", facing)
 
+func playFlaponce():
+	SoundController.BirdFlap.set_loop_mode(0)
+	$OwlBody/FlapSound.stream = SoundController.BirdFlap
+	$OwlBody/FlapSound.play(0.2)
+
+func playPoof():
+	$OwlBody/Poofs.stream = SoundController.Poof1
+	$OwlBody/Poofs.play(0.2)
+
+func playFoop():
+	$OwlBody/Poofs.stream = SoundController.Poof1
+	$OwlBody/Poofs.play(0.2)
 
 func MoveOwl():
 	#If the owl has hit the max distance and is out(visible)
@@ -122,6 +137,7 @@ func MoveOwl():
 		else:
 			velocity = recall()
 			action = "Fly"
+			
 		
 	#print("Bird speed Is ", velocity.x)
 	if velocity.x >= 0: 
@@ -142,6 +158,7 @@ func MoveOwl():
 func throw(destination):
 	if canThrow && AbilityFlags.canThrowOwl:
 		action = "Spawn"
+		playFlaponce()
 		visible = true
 		lightSource.enabled = true
 		disappear = false

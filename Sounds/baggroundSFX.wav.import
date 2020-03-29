@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/baggroundSFX.wav-c1d5ac0a77a70e06c61c5250d5a0849f.sample"
+
+[deps]
+
+source_file="res://Sounds/baggroundSFX.wav"
+dest_files=[ "res://.import/baggroundSFX.wav-c1d5ac0a77a70e06c61c5250d5a0849f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -12,8 +12,9 @@ onready var owl = $ThrowOwl
 var shown = false
 
 
-
 func _process(delta):
+	
+	
 	if AbilityFlags.WIN:
 		winScreen()
 	if AbilityFlags.pickedUpOwl:
@@ -54,6 +55,8 @@ func doubleJumpPicked():
 	AbilityFlags.hasDoubleJump = true
 	shown = true
 
+
+
 func glidePicked():
 	glide.show()
 	AbilityFlags.pickedUpGlide = false
@@ -71,3 +74,4 @@ func owlPicked():
 	AbilityFlags.pickedUpOwl = false
 	AbilityFlags.canThrowOwl = true
 	shown = true
+

@@ -2,7 +2,7 @@ extends Node
 
 #Script containing all of the boolean flags for the abilitities the player canget
 
-var hasDoubleJump = false
+var hasDoubleJump = true
 var hasGlide = false
 var hasOwlSwitch = false
 var canThrowOwl = false

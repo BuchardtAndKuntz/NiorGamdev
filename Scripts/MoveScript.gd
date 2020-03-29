@@ -31,6 +31,23 @@ func _physics_process(delta):
 	
 	# print("hasDoubleJumped: " + str(hasDoubleJumped) + " - midAir: " + str(midAir))
 
+func playFanfare():
+	$PickUpSFX.stream = SoundController.Fanfare
+	$PickUpSFX.play()
+
+func playGrab():
+	$PickUpSFX.stream = SoundController.Grab
+	$PickUpSFX.play()
+
+func playPoof():
+	$JumpSFX.stream = SoundController.Poof1
+	$JumpSFX.play(0.1)
+
+func playPoof2():
+	$JumpSFX.stream = SoundController.Poof2
+	$JumpSFX.play(0.1)
+
+
 func processAnimation():
 	match action:
 		"Idle":
@@ -114,11 +131,13 @@ func processJump():
 
 #Single jump
 func jump():
+	playPoof()
 	playerVelocity.y = -jumpHeight
 	midAir = true
 #Midair jump
 func doubleJump():
 	if AbilityFlags.hasDoubleJump:
+		playPoof2()
 		playerVelocity.y = -jumpHeight
 		hasDoubleJumped = true
 #Midair glide

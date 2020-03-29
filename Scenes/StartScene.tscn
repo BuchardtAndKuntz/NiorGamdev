@@ -29,7 +29,7 @@ anchor_right = 1.00092
 anchor_bottom = 0.395835
 custom_fonts/font = ExtResource( 5 )
 text = "Journey of a
- homebound hungry wizard"
+ homebound wizard"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -75,5 +75,6 @@ __meta__ = {
 }
 
 [node name="ControlPanel" parent="Panel" instance=ExtResource( 3 )]
+visible = false
 [connection signal="pressed" from="Panel/StartGame" to="Panel/ControlPanel" method="_on_StartGame_pressed"]
 [connection signal="pressed" from="Panel/Close" to="Panel/Close" method="_on_Close_pressed"]
