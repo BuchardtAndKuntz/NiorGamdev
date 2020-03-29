@@ -3,7 +3,7 @@ extends Node2D
 export var canThrow = true
 export var ThrowSpeed = 500
 export var MaxDistance = 500
-export var disappearTime = 10.0
+export var disappearTime = 3.0
 export var SwapTime = 2.0
 var SwapTimer
 var disappearTimer
@@ -30,6 +30,7 @@ func _ready():
 
 func animFinished():
 	if lastAction=="Vanish":
+		print("Vanish finished")
 		disappearTimer=0
 		resetOwl()
 
