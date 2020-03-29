@@ -39,7 +39,7 @@ Use the movment keys or wasd to move
 
 Press up/w or space to jump
 
-Press space to start the game"
+Press enter to start the game"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

@@ -15,9 +15,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Nior Game"
+config/name="Journey of the Homebound Wizard"
 run/main_scene="res://IntroScene/Splash.tscn"
-config/icon="res://icon.png"
+config/icon="res://Graphics/owl_idle_right/owl_idle_right30.png"
 
 [autoload]
 
