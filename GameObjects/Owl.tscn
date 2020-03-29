@@ -47,6 +47,3 @@ attenuation = 3.13834
 volume_db = -12.117
 pitch_scale = 0.88
 attenuation = 2.92817
-
-[node name="IdleSound" type="AudioStreamPlayer2D" parent="OwlBody"]
-attenuation = 2.92817

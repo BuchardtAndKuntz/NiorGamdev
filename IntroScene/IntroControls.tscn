@@ -42,7 +42,9 @@ You might need to gain additional skills reach the cauldron
 
 Use the movment keys or wasd to move
 
-Press up/w or space to jump"
+Press up/w or space to jump
+
+Press space to start game"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
