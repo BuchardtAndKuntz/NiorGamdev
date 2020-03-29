@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://Sounds/MysticMusic.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/MoveScript.gd" type="Script" id=2]
 [ext_resource path="res://Images/light_02.png" type="Texture" id=3]
 [ext_resource path="res://Graphics/IdleLeft.tres" type="SpriteFrames" id=4]
-[ext_resource path="res://Sounds/baggroundSFX.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 42.992 )
@@ -34,14 +34,12 @@ frames = ExtResource( 4 )
 animation = "RightIdle"
 
 [node name="PickUpSFX" type="AudioStreamPlayer2D" parent="."]
-volume_db = -5.049
+volume_db = 5.0
 pitch_scale = 0.85
 
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
-volume_db = -22.214
 
 [node name="BackgroundSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 5 )
-volume_db = -0.506
-pitch_scale = 0.69
+stream = ExtResource( 1 )
+volume_db = -5.0
 autoplay = true

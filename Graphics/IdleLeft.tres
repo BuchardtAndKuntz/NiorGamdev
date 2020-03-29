@@ -12,9 +12,9 @@ animations = [ {
 "name": "LeftIdle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "LeftMove",
+"name": "RightMove",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
@@ -22,8 +22,8 @@ animations = [ {
 "name": "RightIdle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "RightMove",
+"name": "LeftMove",
 "speed": 5.0
 } ]
