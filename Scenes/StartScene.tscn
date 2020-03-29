@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/CloseGame.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/Theme.tres" type="Theme" id=2]
 [ext_resource path="res://IntroScene/IntroControls.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Intro.gd" type="Script" id=4]
+[ext_resource path="res://Graphics/Font/bigFont.tres" type="DynamicFont" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -22,29 +23,40 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Panel"]
-anchor_left = 0.196289
-anchor_top = 0.233333
-anchor_right = 0.748047
-anchor_bottom = 0.376667
-text = "The mystery owl!=!=!=!=!0"
+anchor_left = 0.000914991
+anchor_top = 0.257502
+anchor_right = 1.00092
+anchor_bottom = 0.395835
+custom_fonts/font = ExtResource( 5 )
+text = "Journey of a
+ homebound hungry wizard"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="StartGame" type="Button" parent="Panel"]
-anchor_left = 0.5
-anchor_top = 0.5
+[node name="Label" type="Label" parent="Panel/Label"]
+anchor_left = 0.493
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -81.3789
-margin_top = -19.3334
-margin_right = 81.3789
-margin_bottom = 19.3334
+anchor_bottom = 1.0
+margin_left = -0.0450134
+margin_top = 18.8464
+margin_right = 4.0
+margin_bottom = 46.8464
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartGame" type="Button" parent="Panel"]
+anchor_left = 0.423273
+anchor_top = 0.538047
+anchor_right = 0.582217
+anchor_bottom = 0.602492
 custom_colors/font_color = Color( 0.854902, 0.584314, 0.768627, 1 )
 text = "Start Game"
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="Close" type="Button" parent="Panel"]
@@ -63,6 +75,5 @@ __meta__ = {
 }
 
 [node name="ControlPanel" parent="Panel" instance=ExtResource( 3 )]
-visible = true
 [connection signal="pressed" from="Panel/StartGame" to="Panel/ControlPanel" method="_on_StartGame_pressed"]
 [connection signal="pressed" from="Panel/Close" to="Panel/Close" method="_on_Close_pressed"]
