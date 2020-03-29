@@ -9,6 +9,7 @@
 radius = 59.4859
 
 [node name="MineLight" type="Node2D"]
+scale = Vector2( 0.3, 0.3 )
 
 [node name="Off" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -19,7 +20,7 @@ texture = ExtResource( 4 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( -0.975403, 78.4449 )
-scale = Vector2( 0.162959, 0.157252 )
+scale = Vector2( 0.75, 0.75 )
 enabled = false
 texture = ExtResource( 1 )
 color = Color( 1, 0.823529, 0.568627, 1 )
