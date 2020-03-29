@@ -91,7 +91,6 @@ func processAnimation():
 		"Spawn":
 			if facing == "Right":
 				animationSprite.play("RightSpawn")
-				
 			elif facing == "Left":
 				animationSprite.play("LeftSpawn")
 		"Land":

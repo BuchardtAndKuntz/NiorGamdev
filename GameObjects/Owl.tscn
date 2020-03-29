@@ -12,6 +12,7 @@ height = 17.2714
 [node name="OwlRoot" type="Node2D"]
 scale = Vector2( 0.3, 0.3 )
 script = ExtResource( 2 )
+disappearTime = 3.0
 
 [node name="OwlBody" type="KinematicBody2D" parent="."]
 collision_layer = 2
@@ -38,7 +39,7 @@ mode = 2
 [node name="OwlSprite" type="AnimatedSprite" parent="OwlBody"]
 scale = Vector2( 0.3, 0.3 )
 frames = ExtResource( 4 )
-animation = "LeftIdle"
+animation = "LeftSpawn"
 
 [node name="FlapSound" type="AudioStreamPlayer2D" parent="OwlBody"]
 attenuation = 3.13834
@@ -49,4 +50,4 @@ pitch_scale = 0.88
 attenuation = 2.92817
 
 [node name="IdleSound" type="AudioStreamPlayer2D" parent="OwlBody"]
-attenuation = 2.92817
+attenuation = 3.0

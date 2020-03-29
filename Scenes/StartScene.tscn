@@ -28,7 +28,7 @@ anchor_top = 0.257502
 anchor_right = 1.00092
 anchor_bottom = 0.395835
 custom_fonts/font = ExtResource( 5 )
-text = "Journey of a
+text = "Journey of the
  homebound wizard"
 align = 1
 __meta__ = {
@@ -48,25 +48,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartGame" type="Button" parent="Panel"]
+[node name="StartGame" type="Button" parent="Panel/Label"]
 anchor_left = 0.423273
 anchor_top = 0.538047
 anchor_right = 0.582217
 anchor_bottom = 0.602492
+margin_left = -0.939117
+margin_top = 123.669
+margin_right = -0.939148
+margin_bottom = 146.32
 custom_colors/font_color = Color( 0.854902, 0.584314, 0.768627, 1 )
 text = "Start Game"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Close" type="Button" parent="Panel"]
+[node name="Close" type="Button" parent="Panel/Label"]
 anchor_left = 0.5
 anchor_top = 0.688
 anchor_right = 0.5
 anchor_bottom = 0.688
-margin_left = -84.3203
-margin_top = -38.667
-margin_right = 84.3203
+margin_left = -85.2598
+margin_top = 162.528
+margin_right = 83.3808
+margin_bottom = 201.195
 custom_colors/font_color = Color( 0.854902, 0.584314, 0.768627, 1 )
 text = "Close game"
 script = ExtResource( 1 )
@@ -76,5 +81,5 @@ __meta__ = {
 
 [node name="ControlPanel" parent="Panel" instance=ExtResource( 3 )]
 visible = false
-[connection signal="pressed" from="Panel/StartGame" to="Panel/ControlPanel" method="_on_StartGame_pressed"]
-[connection signal="pressed" from="Panel/Close" to="Panel/Close" method="_on_Close_pressed"]
+[connection signal="pressed" from="Panel/Label/StartGame" to="Panel/ControlPanel" method="_on_StartGame_pressed"]
+[connection signal="pressed" from="Panel/Label/Close" to="Panel/Label/Close" method="_on_Close_pressed"]
