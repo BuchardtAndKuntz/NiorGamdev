@@ -17,7 +17,14 @@ shape = SubResource( 1 )
 [node name="Light2D" type="Light2D" parent="."]
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 3 )
-shadow_enabled = true
+mode = 2
+
+[node name="Light2D2" type="Light2D" parent="."]
+scale = Vector2( 0.3, 0.3 )
+enabled = false
+texture = ExtResource( 3 )
+color = Color( 1, 1, 1, 0.219608 )
+mode = 2
 
 [node name="PlayerSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 1.2861, -13.2893 )

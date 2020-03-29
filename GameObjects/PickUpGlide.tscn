@@ -23,3 +23,4 @@ shape = SubResource( 1 )
 [node name="Light2D" type="Light2D" parent="Glide"]
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 3 )
+mode = 2

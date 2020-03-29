@@ -24,3 +24,4 @@ animation = "LeftIdle"
 [node name="Light2D" type="Light2D" parent="Owl"]
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 3 )
+mode = 2
