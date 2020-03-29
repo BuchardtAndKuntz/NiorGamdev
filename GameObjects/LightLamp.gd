@@ -27,4 +27,9 @@ func lightLamp():
 	get_parent().get_node("Off").visible=false
 	get_parent().get_node("On").visible=true
 	get_parent().get_node("Light2D").enabled = true
+	$SoundPlayer.stream = SoundController.lightFire
+	$SoundPlayer.play()
+	yield($SoundPlayer, "finished")
+	$SoundPlayer.stream = SoundController.fireCrackle
+	$SoundPlayer.play()
 	

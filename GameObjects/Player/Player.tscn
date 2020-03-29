@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Sounds/MysticMusic.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/MoveScript.gd" type="Script" id=2]
 [ext_resource path="res://Images/light_02.png" type="Texture" id=3]
 [ext_resource path="res://Graphics/IdleLeft.tres" type="SpriteFrames" id=4]
@@ -40,6 +39,5 @@ pitch_scale = 0.85
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
 
 [node name="BackgroundSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 1 )
 volume_db = -5.0
 autoplay = true
